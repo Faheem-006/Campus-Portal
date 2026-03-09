@@ -1,0 +1,20 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Poppins', sans-serif; background-color: #f8f9fb; }
+.navbar { background: linear-gradient(90deg, #0f2027, #203a43, #2c5364) !important; }
+.hero-section { background: linear-gradient(135deg, #1c1f26, #2b5876, #4e4376); min-height: 500px; display: flex; align-items: center; }
+.feature-card { background: white; border-radius: 16px; padding: 30px 20px; text-align: center; box-shadow: 0 3px 12px rgba(0,0,0,0.08); transition: all 0.3s; height: 100%; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.feature-card i { font-size: 2.8rem; color: #2b5876; margin-bottom: 15px; }
+.stat-card { background: linear-gradient(135deg, #2b5876, #4e4376); color: white; border-radius: 16px; padding: 30px; text-align: center; }
+.stat-card h2 { font-size: 2.5rem; font-weight: 700; }
+.testimonial-card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 3px 12px rgba(0,0,0,0.08); height: 100%; }
+.auth-bg { background: linear-gradient(135deg, #1c1f26, #2b5876, #4e4376); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+.auth-card { background: white; border-radius: 20px; padding: 40px 35px; width: 100%; max-width: 440px; box-shadow: 0 12px 30px rgba(0,0,0,0.2); }
+.btn-primary-custom { background: linear-gradient(90deg, #2b5876, #4e4376); border: none; color: white; border-radius: 10px; padding: 12px; font-weight: 600; width: 100%; transition: 0.3s; }
+.btn-primary-custom:hover { opacity: 0.9; transform: translateY(-2px); color: white; }
+.badge-pending { background-color: #dc3545 !important; }
+.badge-review { background-color: #ffc107 !important; color: #000 !important; }
+.badge-resolved { background-color: #198754 !important; }
+.admin-sidebar { background: linear-gradient(180deg, #0f2027, #203a43); min-height: 100vh; width: 250px; }
+.page-hero { background: linear-gradient(135deg, #1c1f26, #2b5876, #4e4376); padding: 80px 20px; color: white; text-align: center; }
+footer { background: #f1f4f9; padding: 50px 0 20px; margin-top: 60px; }
