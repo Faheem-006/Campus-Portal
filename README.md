@@ -139,3 +139,4 @@ db.users.updateOne({ email: "admin@example.com" }, { $set: { role: "admin" } })
 - react, react-dom, react-router-dom
 - axios, sweetalert2
 - Bootstrap 5, Bootstrap Icons (via CDN)
+"# Campus-Portal" 
