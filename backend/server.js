@@ -18,14 +18,6 @@ app.use('/api/complaints', require('./routes/complaints'));
 app.use('/api/contact', require('./routes/contact'));
 app.use('/api/admin', require('./routes/admin'));
 
-// Serve static files from the React app build directory
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Catch all handler: send back React's index.html file for any non-API routes
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
-});
-
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log('MongoDB connected'))

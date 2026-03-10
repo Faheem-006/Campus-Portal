@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
@@ -29,9 +29,9 @@ const AdminDashboard = () => {
     const headers = { Authorization: `Bearer ${token}` };
     try {
       const [c, co, s] = await Promise.all([
-        axios.get('/api/admin/complaints', { headers }),
-        axios.get('/api/admin/contacts', { headers }),
-        axios.get('/api/admin/stats', { headers }),
+        api.get('/api/admin/complaints', { headers }),
+        api.get('/api/admin/contacts', { headers }),
+        api.get('/api/admin/stats', { headers }),
       ]);
       setComplaints(c.data);
       setContacts(co.data);
@@ -52,7 +52,7 @@ const AdminDashboard = () => {
     if (!value) return;
     const { value: notes } = await Swal.fire({ title: 'Admin Notes (optional)', input: 'textarea', showCancelButton: true });
     try {
-      await axios.put(`/api/admin/complaints/${id}`, { status: value, adminNotes: notes || '' }, { headers: { Authorization: `Bearer ${token}` } });
+      await api.put(`/api/admin/complaints/${id}`, { status: value, adminNotes: notes || '' }, { headers: { Authorization: `Bearer ${token}` } });
       Swal.fire({ icon: 'success', title: 'Status Updated', timer: 1500, showConfirmButton: false });
       fetchAll();
     } catch {}

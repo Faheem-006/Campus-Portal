@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import Swal from 'sweetalert2';
 
 const COLLEGES = ['DSEC', 'SRM', 'Anna University', 'VIT', 'Loyola College'];
@@ -20,7 +20,7 @@ const FileComplaint = () => {
       const fd = new FormData();
       Object.entries(form).forEach(([k, v]) => fd.append(k, v));
       if (image) fd.append('image', image);
-      const res = await axios.post('/api/complaints', fd);
+      const res = await api.post('/api/complaints', fd);
       Swal.fire({
         icon: 'success',
         title: 'Complaint Submitted!',

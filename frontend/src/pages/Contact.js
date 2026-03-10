@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import Swal from 'sweetalert2';
 
 const Contact = () => {
@@ -10,7 +10,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      await axios.post('/api/contact', form);
+      await api.post('/api/contact', form);
       Swal.fire({ icon: 'success', title: 'Message Sent!', text: 'We will get back to you within 24 hours.', confirmButtonColor: '#2b5876' });
       setForm({ name: '', email: '', subject: '', message: '' });
     } catch {

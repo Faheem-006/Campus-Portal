@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../utils/api';
 import { useAuth } from '../context/AuthContext';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const MyComplaints = () => {
 
   useEffect(() => {
     if (user && token) {
-      axios.get('/api/complaints/my', { headers: { Authorization: `Bearer ${token}` } })
+      api.get('/api/complaints/my', { headers: { Authorization: `Bearer ${token}` } })
         .then(r => setComplaints(r.data))
         .catch(() => {})
         .finally(() => setLoading(false));

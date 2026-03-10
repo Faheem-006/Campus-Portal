@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../utils/api';
 
 const Home = () => {
   const [stats, setStats] = useState({ total: 0, resolved: 0, pending: 0, underReview: 0 });
 
   useEffect(() => {
-    axios.get('/api/complaints/stats').then(r => setStats(r.data)).catch(() => {});
+    api.get('/api/complaints/stats').then(r => setStats(r.data)).catch(() => {});
   }, []);
 
   const features = [
