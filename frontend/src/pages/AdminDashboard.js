@@ -36,7 +36,10 @@ const AdminDashboard = () => {
       setComplaints(c.data);
       setContacts(co.data);
       setStats(s.data);
-    } catch {}
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to load dashboard data. Please try again.' });
+    }
     setLoading(false);
   };
 
@@ -55,7 +58,10 @@ const AdminDashboard = () => {
       await api.put(`/api/admin/complaints/${id}`, { status: value, adminNotes: notes || '' }, { headers: { Authorization: `Bearer ${token}` } });
       Swal.fire({ icon: 'success', title: 'Status Updated', timer: 1500, showConfirmButton: false });
       fetchAll();
-    } catch {}
+    } catch (error) {
+      console.error('Error updating status:', error);
+      Swal.fire({ icon: 'error', title: 'Error', text: 'Failed to update status. Please try again.' });
+    }
   };
 
   const filtered = filter === 'All' ? complaints : complaints.filter(c => c.status === filter);
